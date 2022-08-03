@@ -1,9 +1,9 @@
 import {sleep} from "./sleep";
 
-export async function waitForCondition(callback: () => boolean, waitTimeInSeconds = 10) {
+export async function waitForCondition(callback: () => Promise<boolean>, waitTimeInSeconds = 10) {
   let maxLoop = waitTimeInSeconds * 10;
   for (let i = 0; i < maxLoop; i++) {
-    if (callback()) {
+    if (await callback()) {
       return;
     }
     await sleep(100);
