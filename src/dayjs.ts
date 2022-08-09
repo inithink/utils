@@ -5,6 +5,8 @@ import timezone from "dayjs/plugin/timezone";
 dayjs.extend(customParseFormat);
 dayjs.extend(timezone);
 
+dayjs.tz.setDefault("Asia/Seoul");
+
 export {
   dayjs
 };
